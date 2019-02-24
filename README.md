@@ -1,69 +1,51 @@
-# Hello World PhoneGap Template [![bitHound Score][bithound-img]][bithound-url]
+# PhoneGap Presentation Demo
 
-A PhoneGap Hello World template
+## Cách chạy app PhoneGap:
 
-## Usage
+1. Mở terminal tại thư mục phonegap
 
-#### PhoneGap CLI
+2. Chạy lệnh `phonegap serve`
+```
+> phonegap serve
+[phonegap] starting app server...
+[phonegap] listening on 192.168.1.7:3000
+[phonegap]
+[phonegap] ctrl-c to stop the server
+```
+Để yên màn hình này trong lúc code, khi save code sẽ tự load change trên điện thoại. Để tắt nhấn Ctrl+C
 
-The hello-world template is the default when you create a new application using the [phonegap-cli][phonegap-cli-url].
+3. Mở app PhoneGap Developer trên điện thoại, nhập địa chỉ trên vào, bấm Connect
 
-    phonegap create my-app
+## Cách build PhoneGap ra file apk,...
+```
+phonegap build android
+phonegap build ios
+phonegap build wp8
+phonegap build blackberry10
+```
 
-Create an app using this template specifically:
+## Cách build và cài phonegap vào máy thật
+```
+phonegap run android
+phonegap run ios
+phonegap run wp8
+phonegap run blackberry10
+```
 
-    phonegap create my-app --template hello-world
+## Cách add platform
+```
+cordova platform add ios
+cordova platform add android
+```
 
-To see a list of other available PhoneGap templates:
+## Cach kiểm tra các platforms đã cài
+```
+cordova platform ls
+```
 
-    phonegap template list
+## Cách add plugin
 
-## [config.xml][config-xml]
+Tuỳ vào plugin sẽ có cách cài đặt khác nhau, đa số document sẽ hướng dẫn lệnh cài đặt. Chỉ cần copy vào thôi.
 
-#### android-minSdkVersion (Android only)
+Ví dụ: `cordova plugin add cordova-plugin-camera`
 
-Minimum SDK version supported on the target device. Maximum version is blank by default.
-
-This template sets the minimum to `14`.
-
-    <preference name="android-minSdkVersion" value="14" />
-
-#### &lt;access ...&gt; (All)
-
-This template defaults to wide open access.
-
-    <access origin="*" />
-
-It is strongly encouraged that you restrict access to external resources in your application before releasing to production.
-
-For more information on whitelist configuration, see the [Cordova Whitelist Guide][cordova-whitelist-guide] and the [Cordova Whitelist Plugin documentation][cordova-plugin-whitelist]
-
-## [www/index.html][index-html]
-
-#### Content Security Policy (CSP)
-
-The default CSP is similarly open:
-
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-
-Much like the access tag above, you are strongly encouraged to use a more restrictive CSP in production.
-
-A good starting point declaration might be:
-
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />
-
-For more information on the Content Security Policy, see the [section on CSP in the Cordova Whitelist Plugin documentation][cordova-plugin-whitelist-csp].
-
-Another good resource for generating a good CSP declaration is [CSP is Awesome][csp-is-awesome]
-
-
-[phonegap-cli-url]: http://github.com/phonegap/phonegap-cli
-[cordova-app]: http://github.com/apache/cordova-app-hello-world
-[bithound-img]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world/badges/score.svg
-[bithound-url]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world
-[config-xml]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/config.xml
-[index-html]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/www/index.html
-[cordova-whitelist-guide]: https://cordova.apache.org/docs/en/dev/guide/appdev/whitelist/index.html
-[cordova-plugin-whitelist]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist
-[cordova-plugin-whitelist-csp]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist#content-security-policy
-[csp-is-awesome]: http://cspisawesome.com
