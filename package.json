@@ -1,0 +1,13 @@
+{
+  "name": "com.fpt.se1262.phonegap",
+  "version": "1.0.0",
+  "displayName": "PhoneGap Demo",
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  },
+  "dependencies": {
+    "cordova-android": "~7.1.4"
+  }
+}
