@@ -1,5 +1,7 @@
 # PhoneGap Presentation Demo
 
+[Link slides present](https://docs.google.com/presentation/d/1C1k65ehwMvYZcIgEfh77BRu4ED8n0UTgBn_q86qcjxI/edit?usp=sharing)
+
 ## Cách chạy app PhoneGap:
 
 1. Mở terminal tại thư mục phonegap
