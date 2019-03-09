@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+<!-- 2. Geolocation: cordova-plugin-geolocation -->
+<!--
+    Description: Method lists: navigator.geolocation.
+    - getCurrentPosition
+    - watchPosition
+    - clearWatch
+ -->
+<div class="app">
+    <button onclick="statusBarNhat()">StatusBar log</button>
+    <button onclick="backgroundColorByName()">backgroundColorByName</button>
+    <button onclick="showSB()">Show StatusBar</button>
+    <button onclick="hideSB()">Hide StatusBar</button>
+    <script>
+        function statusBarNhat() {
+            console.log(StatusBar);
+            // StatusBar.overlaysWebView(true);// set StatusBar = true -> trong suot
+
+            //--->Suppose android 6+
+            // StatusBar.styleDefault;
+            // StatusBar.styleLightContent
+            // StatusBar.styleBlackTranslucent
+            // StatusBar.styleBlackOpaque
+
+            //--->Suppose android 5+
+            // StatusBar.backgroundColorByName
+            // StatusBar.backgroundColorByHexString
+
+            // StatusBar.hide
+            // StatusBar.show
+        }
+        function backgroundColorByName() {
+            StatusBar.backgroundColorByName("red");
+        }
+        function showSB() {
+            StatusBar.show();
+        }
+        function hideSB() {
+            StatusBar.hide();
+        }
+
+    </script>
+
+</div>
+</body>
+</html>

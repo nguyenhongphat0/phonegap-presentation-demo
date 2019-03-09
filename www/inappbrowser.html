@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+<!-- 6. In App Browser: open a browser into app  -->
+<!--
+
+ -->
+<div class="app">
+
+    <form id="getSite">
+        Type a website: </br>
+        www.<input type="text" name="website" value="nhatdo.dev"></br>
+        <input type="button" value="Submit" onclick="showHelp()"/>
+    </form>
+    </hr>
+
+    <script>
+        var inAppBrowserRef;
+
+        function showHelp() {
+            var url = document.getElementById("getSite");
+            url = "https://www." + url.elements[0].value;
+            alert(url);
+
+            var target = "_blank";
+
+            var options = "location=yes";   // ,hidden=yes
+
+            inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
+            inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
+
+            // inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
+            // inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+        }
+
+        function loadStartCallBack() {
+            alert("Loading please wait ...");
+
+        }
+    </script>
+</div>
+</body>
+</html>

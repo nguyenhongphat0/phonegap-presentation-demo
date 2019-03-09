@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+<!-- 2. Geolocation: cordova-plugin-geolocation -->
+<!--
+    Description: Method lists: navigator.geolocation.
+    - getCurrentPosition
+    - watchPosition
+    - clearWatch
+ -->
+<div class="app">
+    <button onclick="getCurrentPosition()">Get Current Position</button>
+    <a target="_self" class="btn" href="googlemap.html"><button>Open Google Maps</button></a>
+    <button onclick="WatchPosition()">Watch Position</button>
+    <button onclick="ClearWatch()">Clear Watch</button>
+    <hr>
+    <div id="geolocation"></div>
+    <script>
+        //Return the current position
+        function getCurrentPosition() {
+            var successCallback = function (position) {
+                alert('Latitude: ' + position.coords.latitude + '\n' +
+                    'Longitude: ' + position.coords.longitude + '\n');
+                //     'Altitude: ' + position.coords.altitude + '\n' +
+                //     'Accuracy: ' + position.coords.accuracy + '\n' +
+                //     'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
+                //     'Heading: ' + position.coords.heading + '\n' +
+                //     'Speed: ' + position.coords.speed + '\n' +
+                //     'Timestamp: ' + position.timestamp + '\n');
+                localStorage.setItem("latitudeNhat", position.coords.latitude);
+                localStorage.setItem("longitudeNhat", position.coords.longitude);
+            };
+
+            function errorCallback(error) {
+                alert('code: ' + error.code + '\n' +
+                    'message: ' + error.message + '\n');
+            }
+
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        }
+
+        //Return the position when change in position is detected
+        function WatchPosition() {
+
+            function successCallback(position) {
+                var element = document.getElementById('geolocation');
+                element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+                                    'Longitude: ' + position.coords.longitude + '<br />' +
+                                    '<hr />'    + element.innerHTML ;
+            }
+
+            function errorCallback(error) {
+                alert('code: ' + error.code + '\n' +
+                    'message: ' + error.message + '\n');
+                console.log('--------->Code: ' + error.code + ' Message: ' + error.message);
+            }
+
+            watchID = navigator.geolocation.watchPosition(successCallback, errorCallback, {
+                timeout: 30000,
+                enableHighAccuracy: true
+            });
+            console.log("----->watchId la cai long gi: " + watchID);
+        }
+
+        function ClearWatch() {
+
+            navigator.geolocation.clearWatch(watchID);
+        }
+
+
+    </script>
+
+</div>
+</body>
+</html>

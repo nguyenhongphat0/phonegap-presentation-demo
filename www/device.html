@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+<!-- 4. Device: cordova-plugin-device -->
+<!--
+    device.cordova
+    device.model
+    device.platform
+    device.uuid
+    device.version
+    device.manufacturer
+    device.isVirtual
+    device.serial
+ -->
+<div class="app">
+    <button onclick="deviceCheck()">Check Device Function</button>
+    <hr>
+    <div id="deviceN"></div>
+    <script>
+        function deviceCheck() {
+            var element = document.getElementById('deviceN');
+            element.innerHTML = 'Cordova version: ' + device.cordova + '<br>' +
+                                'Device model: ' + device.model + '<br>' +
+                                'Platforms device: ' + device.platform + '<br>' +
+                                'uuid: ' + device.uuid + '<br>' +
+                                'Device version : ' + device.version + '<br>' +
+                                'Device manufacturer: ' + device.manufacturer + '<br>' +
+                                'Is device Virtual : ' + device.isVirtual + '<br>' +
+                                'Device serial: ' + device.serial + '<br>';
+        }
+    </script>
+</div>
+</body>
+</html>
