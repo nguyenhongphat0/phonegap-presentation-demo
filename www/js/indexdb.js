@@ -1,8 +1,6 @@
 $(document).on("ready", function () {
     databaseHandler.createDatabase();
-    localStorage.clear();
 });
-var deletePrArr = [];
 
 function addProduct() {
     var name = $("#txtName").val();
@@ -71,11 +69,9 @@ function deleteProduct() {
     var r = confirm("Delete product\nName: " + currentProduct.name +
         "\nQuantity: " + currentProduct.quantity);
     if (r == true) {
-        localStorage.setItem('history', currentProduct.name)
         productHandler.deleteProduct(currentProduct.id);
         productHandler.loadProducts(displayProducts);
     }
-
     $("#popupUpdateDelete").popup("close");
 }
 
@@ -90,12 +86,13 @@ function updateProduct() {
     productHandler.updateProduct(currentProduct.id, newName, newQuantity);
     $("#updatedialog").dialog("close");
 }
-$(document).on("pagebeforeshow", "#deleteHistoryPage", function () {
-    var dataObject = (localStorage.getItem('history'));
-    $(".prBox").html(dataObject);
-    // console.log(dataObject);
 
-});
-function getHistoryDelete() {
-
+function getLocal() {
+    var username = localStorage.getItem('username');
+    $('.userLocal').html(username);
+    localStorage.clear();
+}
+function getSession() {
+    var sess = sessionStorage.getItem('session');
+    $('.usersession').html(sess);
 }
