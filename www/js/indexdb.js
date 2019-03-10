@@ -88,11 +88,22 @@ function updateProduct() {
 }
 
 function getLocal() {
-    var username = localStorage.getItem('username');
-    $('.userLocal').html(username);
+    var username = localStorage.getItem('localtest');
+    $('.userlocal').html(username);
     localStorage.clear();
 }
 function getSession() {
-    var sess = sessionStorage.getItem('session');
+    var sess = sessionStorage.getItem('session1');
     $('.usersession').html(sess);
+    sessionStorage.clear();
+}
+
+function addSession() {
+    var vl = $('#txtSession').val();
+    sessionStorage.setItem('session1', vl);
+}
+
+function addNewLocal() {
+    var vlc = $('#txtlocal').val();
+    localStorage.setItem('localtest', vlc);
 }

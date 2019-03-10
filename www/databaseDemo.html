@@ -165,14 +165,24 @@
     </div>
 
 
-    <div data-role="main" class="ui-content">
-        <div class="userLocal">
 
+
+    <div data-role="main" class="ui-content">
+        <div class="userlocal">
+            <form>
+                <div class="ui-field-contain">
+                    <label for="txtlocal">Local Text:</label>
+                    <input type="text" id="txtlocal" data-clear-btn="true"/>
+
+                    <label for="addnewLocal"></label>
+                    <a class="ui-btn ui-icon-plus ui-btn-icon-left"
+                       id="addnewLocal" onclick="addNewLocal()">Add Local</a>
+                </div>
+            </form>
             <a class="ui-btn ui-icon-plus ui-btn-icon-left"
-               id="btnaddlocal" onclick="getLocal()">show local</a>
+               id="local" onclick="getLocal()">show Local</a>
         </div>
     </div>
-
 
     <div data-role="footer" data-position="fixed">
         <h1>WWW.VTGAMES.VN</h1>
@@ -195,7 +205,15 @@
 
     <div data-role="main" class="ui-content">
         <div class="usersession">
-
+            <form>
+                <div class="ui-field-contain">
+                    <label for="txtSession">Session Text:</label>
+                    <input type="text" id="txtSession" data-clear-btn="true"/>
+                    <label for="addSession"></label>
+                    <a class="ui-btn ui-icon-plus ui-btn-icon-left"
+                       id="addSession" onclick="addSession()">Add session</a>
+                </div>
+            </form>
             <a class="ui-btn ui-icon-plus ui-btn-icon-left"
                id="session" onclick="getSession()">show Session</a>
         </div>
