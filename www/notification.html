@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/index.css">
     <script type="text/javascript" src="cordova.js"></script>
 </head>
+
 <body>
     <!-- 1. cordova-plugin-dialogs (Cordova Notification Plugin) -->
     <!--
@@ -25,36 +27,46 @@
         <script>
             //-----Alert
             function notificationAlert() {
-                navigator.notification.alert("This is Alert Notification", alertCallback, 'Alert', 'Push this Shit to Back');
+                navigator.notification.alert("This is Alert Notification", alertCallback, 'Alert',
+                    'Alert PhoneGap');
+
                 function alertCallback() {
-                    alert('Get out of here man!!');
+                    alert('Back');
                 }
             }
 
             //-----Comfirm
             function notificationConfirm() {
-                navigator.notification.confirm("Pick the ones you love most", confirmCallback, 'Porn Survey', ['JAV', 'US', 'Vietnam']);
+                navigator.notification.confirm("Survey for presentation", confirmCallback, 'Review This Presentation',
+                    [
+                        'Marvelous',
+                        'Wonderful',
+                        'Best presentation ever'
+                    ]);
+
                 function confirmCallback(buttonIndex) {
-                    if(buttonIndex == 1){
-                        alert('Maria Ozawa');
-                    }else if(buttonIndex == 2){
-                        alert('Anh da den');
-                    }else{
-                        alert('Kieu Anh Hera');
+                    if (buttonIndex == 1) {
+                        alert('This is the best');
+                    } else if (buttonIndex == 2) {
+                        alert('Very understandable');
+                    } else {
+                        alert('This must be 10');
                     }
                 }
             }
 
             //-----Promt
             function notificationPromt() {
-                navigator.notification.prompt("Please...write your name here: ", onPrompt, 'Check Name', ['OK', 'Exit'], '');
+                navigator.notification.prompt("Please...write your name here: ", onPrompt, 'Check Name', ['OK', 'Exit'],
+                    '');
+
                 function onPrompt(results) {
-                    if(results.buttonIndex == 0){
-                        alert("Fuck " + results.input1);
-                    }else if(results.buttonIndex == 1){
-                        alert("Con co ho " +  results.input1);
-                    }else{
-                        alert("Con Noob " + results.input1);
+                    if (results.buttonIndex == 0) {
+                        alert("Thanks " + results.input1);
+                    } else if (results.buttonIndex == 1) {
+                        alert("Arigatou " + results.input1+"-san");
+                    } else {
+                        alert("Je vous remercie " + results.input1);
                     }
                 }
             }
@@ -67,4 +79,5 @@
         </script>
     </div>
 </body>
+
 </html>
